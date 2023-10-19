@@ -1,0 +1,23 @@
+//mplement a EnQueue &
+// DeQueue Method (Google to know
+//     about it) & Allow upto 10 elements
+//     in a queue only
+
+//Enqueue -> adding at the end of the queue and limit it to 10 elements.
+
+function Queue(q, element) {
+  // empty=[];
+  max = 10;
+  if (q.length < max) {
+    q.push(element);
+    console.log(
+      `${element} has been added to the Queue and the changed Queue is ${q}`
+    );
+  } else {
+    console.log("Queue is full as it's limit is 10 only.");
+  }
+
+  console.log(q);
+}
+
+Queue([1, 2, 3], 4);

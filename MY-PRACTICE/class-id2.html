@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <p class="oye">Paragraph 1</p>
+      Text Node
+      <p>Paragraph 2</p>
+      Text Node 2
+      <p>Paragraph 3</p>
+    </div>
+  </body>
+</html>
+<script>
+  //   const parent = document.getElementById("parent");
+  //   const childNodes = parent.childNodes;
+  //   console.log(childNodes.length);
+  //   console.log(childNodes);
+  //   for (let i = 0; i < parent.children.length; i++) {
+  //     // console.log(parent.children[i].classList);
+  //     console.log(parent.childNodes[i].classList);
+  //   } // Outputs: 5 (3 paragraphs, 1 text node, and 1 comment node if formatted as above)
+
+  //classList gives us the list of the classes
+  //that are there in the nodes.
+  function getCustomElementsByClassName(classKey) {
+    const classArray = [];
+    if (!classKey) {
+      return null;
+    }
+    function traverse(x) {
+      const childynodes = x.children;
+      console.log(childynodes);
+      for (let i = 0; i < childynodes.length; i++) {
+        const child = childynodes[i];
+        if (child.classList.contains(classKey)) {
+          classArray.push(child);
+        }
+        traverse(child);
+      }
+    }
+
+    traverse(document.body);
+    return classArray;
+  }
+
+  const k = getCustomElementsByClassName("oye");
+  console.log("List of the class keys", k);
+</script>
+
+<script>
+  function getCustomElementsByIDName(idKey) {
+    const classArray = [];
+    if (!idKey) {
+      return null;
+    }
+    function traverse(x) {
+      const childynodes = x.children;
+      console.log(childynodes);
+      for (let i = 0; i < childynodes.length; i++) {
+        const child = childynodes[i];
+        if (idKey === child.id) {
+          classArray.push(child);
+        }
+        traverse(child);
+      }
+    }
+
+    traverse(document.body);
+    return classArray;
+  }
+
+  const m = getCustomElementsByIDName("parent");
+  console.log("List of the ID keys", m);
+</script>

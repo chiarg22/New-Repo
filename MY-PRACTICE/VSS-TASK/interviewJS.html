@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  console.log("Script Started");
+
+  showLog();
+
+  var showLog = () => {
+    console.log("This is a Log");
+  };
+
+  console.log("Script Ended");
+</script>
+
+<!-- The error you're encountering, "Uncaught TypeError: showLog is not a function," is occurring because you are attempting to call the showLog function before it is defined. In JavaScript, function declarations (including arrow functions) are hoisted to the top of their containing scope, but function expressions (such as arrow functions assigned to variables) are not.
+
+Let's break down your script step by step:
+
+You start by logging "Script Started" to the console.
+
+Then, you attempt to call the showLog function before it's defined. Since showLog is an arrow function assigned to a variable, it is not hoisted to the top of the scope, so it's not yet available at this point.
+
+Next, you define the showLog arrow function.
+
+Finally, you log "Script Ended" to the console. -->

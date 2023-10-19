@@ -1,0 +1,60 @@
+<!-- //This is a basic representation of JS search functionality using DOM API. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .inputy {
+        background-color: aqua;
+      }
+    </style>
+    <div>
+      <input
+        class="inputy"
+        type="text"
+        placeholder="Search here"
+        id="inputno"
+        value=""
+      />
+    </div>
+    <ul class="list">
+      <li class="part">Chirag</li>
+      <li class="part">Charu</li>
+      <li class="part">Mahesh</li>
+      <li class="part">Kiran</li>
+      <li class="part">Raju</li>
+    </ul>
+  </body>
+</html>
+<script>
+  // function handlechange(e) {
+  //   console.log(e.target.value);
+  // }
+  const list = document.getElementsByClassName("part");
+  console.log(list);
+  const search = document.getElementById("inputno");
+  console.log(search);
+  search.addEventListener(
+    "keyup",
+    (handlechange = (e) => {
+      k = e.target.value.toLowerCase();
+      console.log(k);
+
+      for (let i = 0; i < list.length; i++) {
+        m = list[i].textContent.toLowerCase();
+        console.log(m);
+
+        if (m.includes(k)) {
+          list[i].style.display = "list-item";
+        } else {
+          list[i].style.display = "none";
+        }
+      }
+    })
+  );
+</script>

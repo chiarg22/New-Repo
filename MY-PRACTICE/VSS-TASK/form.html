@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="" />
+  </head>
+  <body style="display: flex; justify-content: center; align-items: center">
+    <div style="border: 2px solid black; width: fit-content">
+      <h1
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: red;
+        "
+      >
+        Register with us
+      </h1>
+      <br />
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        "
+      >
+        <div id="div1">
+          <label for="id1">Username</label>
+          <br />
+          <input
+            type="text"
+            name="name1"
+            id="id1"
+            placeholder="Enter Username"
+          />
+          <p id="p1">Username must be atleast 3 characters.</p>
+        </div>
+        <div id="div2">
+          <label for="id2">Email</label>
+          <br />
+          <input type="email" name="name2" id="id2" placeholder="Enter Email" />
+          <p id="p2" style="size: 2px">Email is not valid.</p>
+        </div>
+        <div id="div3">
+          <label for="id3">Password</label>
+          <br />
+          <input
+            type="password"
+            name="name3"
+            id="id3"
+            placeholder="Enter Password"
+          />
+          <p id="p3">Password must be atleast 3 characters.</p>
+        </div>
+        <div id="div4">
+          <label for="id4">Confirm Password</label>
+          <br />
+          <input
+            type="password"
+            name="name4"
+            id="id4"
+            placeholder="Enter Password again"
+          />
+          <p id="p4">Password 2 is required.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  entry1 = document.getElementById("id1");
+  console.log(entry1);
+  uname = document.getElementById("p1");
+  entry2 = document.getElementById("id2");
+  console.log(entry2);
+  uemail = document.getElementById("p2");
+  entry3 = document.getElementById("id3");
+  console.log(entry3);
+  uPassword = document.getElementById("p3");
+  entry4 = document.getElementById("id4");
+  console.log(entry4);
+  uPassword2 = document.getElementById("p4");
+  entry1.addEventListener(
+    "keyup",
+    (handlechange = (e) => {
+      k = e.target.value;
+      console.log(k);
+      if (k.length < 4) {
+        uname.style.display = "block";
+      } else {
+        uname.style.display = "none";
+      }
+    })
+  );
+  entry2.addEventListener(
+    "keyup",
+    (handlechange = (e) => {
+      k = e.target.value;
+      console.log(k);
+      if (k.includes("@")) {
+        uemail.style.display = "none";
+      } else {
+        uemail.style.display = "block";
+      }
+    })
+  );
+  entry3.addEventListener(
+    "keyup",
+    (handlechange = (e) => {
+      k = e.target.value;
+      //   m = k[0].toUpperCase();
+      console.log(k);
+      if (k.length <= 3 || !k.includes("@")) {
+        uPassword.style.display = "block";
+      }
+      //   } else if (m != k) {
+      //     uPassword.style.display = "block";
+      //   }
+      else {
+        uPassword.style.display = "none";
+      }
+    })
+  );
+  entry4.addEventListener(
+    "keyup",
+    (handlechange = (e) => {
+      k = e.target.value;
+      console.log(k);
+      //   if (entry3 !== entry4 || entry4.length <= 0) {
+      //     uPassword2.style.display = "block";
+      //   }
+      if (k != entry3.textcontent && k.length <= 3) {
+        console.log("Not equal");
+        uPassword2.style.display = "block";
+      } else {
+        uPassword2.style.display = "none";
+      }
+    })
+  );
+</script>
